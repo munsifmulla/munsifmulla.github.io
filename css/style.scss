@@ -16,7 +16,7 @@ body, html{
 .bg-image{
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   object-fit: cover;
   z-index: -1;
 }
@@ -29,6 +29,7 @@ body, html{
   align-items: center;
   flex-direction: column;
   background: rgba(0,0,0,0.5);
+  overflow: scroll;
 
   .profile-info{
     text-align: center;
@@ -41,16 +42,16 @@ body, html{
     @media all and (max-width: 360px) {
       padding: 30px;
     }
-    @media all and (max-width: 420px) {
+    @media all and (min-width: 360px) and (max-width: 420px) {
       width: 90vw;
     }
-    @media all and (max-width: 768px) {
+    @media all and (min-width: 421px) and (max-width: 768px) {
       width: 90vw;
     }
-    @media all and (max-width: 1024px) {
+    @media all and (min-width: 769px) and (max-width: 1024px) {
       width: 90vw;
     }
-    @media all and (max-width: 1366px) {
+    @media all and (min-width: 1025px) and (max-width: 1366px) {
       width: 40vw;
     }
 
@@ -62,13 +63,13 @@ body, html{
       @media all and (max-width: 360px) {
         width: 50%;
       }
-      @media all and (max-width: 420px) {
+      @media all and (min-width: 361px) and (max-width: 420px) {
         width: 60%;
       }
-      @media all and (max-width: 768px) {
+      @media all and (min-width: 421px) and (max-width: 768px) {
         width: 50vw;
       }
-      @media all and (max-width: 1024px) {
+      @media all and (min-width: 769px) and (max-width: 1024px) {
         width: 30vw;
       }
     }
@@ -78,20 +79,29 @@ body, html{
       text-shadow: 2px 0 3px #222;
       margin-top: 30px;
       font-weight: 500;
-      @media all and (max-width: 420px) {
+      @media all and (max-width: 360px) {
+        font-size: 2rem;
+      }
+      @media all and (min-width: 361px) and (max-width: 420px) {
         font-size: 2.6rem;
       }
-      @media all and (max-width: 1024px) {
+      @media all and (min-width: 421px) and (max-width: 600px) {
+        font-size: 3rem;
+      }
+      @media all and (min-width: 601px) and (max-width: 1024px) {
         font-size: 4rem;
       }
     }
     h4{
       font-weight: 400;
       letter-spacing: 3px;
-      @media all and (max-width: 420px) {
+      @media all and (min-width: 361px) and (max-width: 420px) {
         font-size: 0.9rem;
       }
-      @media all and (max-width: 1024px) {
+      @media all and (min-width: 421px) and (max-width: 600px) {
+        font-size: 0.9rem;
+      }
+      @media all and (min-width: 601px) and (max-width: 1024px) {
         font-size: 1.5rem;
       }
     }
@@ -118,22 +128,29 @@ body, html{
       width: 90vw;
       padding: 40px 30px;
     }
-    @media all and (max-width: 1366px) {
+    @media all and (min-width: 1025px) and (max-width: 1366px) {
       width: 40vw;
     }
     &:last-of-type{
       margin-top: -1px;
-      margin-bottom: -50px;
+      margin-bottom: 0px;
       padding-top: 30px;
     }
     a{
       color: #222;
       text-decoration: none;
-      font-size: 1.6rem;
-      @media all and (max-width: 420px) {
-        font-size: 1.2rem;
+      font-size: 2.6rem;
+      &:hover{
+        color: #353b48;
+        animation: bounce 200ms linear infinite;
       }
-      @media all and (max-width: 1024px) {
+      @media all and (min-width: 361px) and (max-width: 420px) {
+        font-size: 2rem;
+      }
+      @media all and (min-width: 421px) and (max-width: 600px) {
+        font-size: 2rem;
+      }
+      @media all and (min-width: 601px) and (max-width: 1024px) {
         font-size: 2.5rem;
       }
     }
@@ -148,7 +165,10 @@ body, html{
         @media all and (max-width: 420px) {
           font-size: 0.9rem;
         }
-        @media all and (max-width: 1024px) {
+        @media all and (min-width: 421px) and (max-width: 600px) {
+          font-size: .8rem;
+        }
+        @media all and (min-width: 500) and (max-width: 1024px) {
           font-size: 1.4rem;
         }
       }
@@ -164,4 +184,12 @@ body, html{
   75%  {background: #353b48;}
   90% {background: #2f3640;}
   100% {background: #7f8fa6;}
+}
+
+@keyframes bounce
+{
+  0%   {transform: scale(0.9)}
+  40%   {transform: scale(1.3)}
+  80%   {transform: scale(1.1)}
+  100%   {transform: scale(1.1)}
 }

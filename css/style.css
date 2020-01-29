@@ -16,7 +16,7 @@ body, html {
 .bg-image {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   -o-object-fit: cover;
      object-fit: cover;
   z-index: -1;
@@ -41,6 +41,7 @@ body, html {
       -ms-flex-direction: column;
           flex-direction: column;
   background: rgba(0, 0, 0, 0.5);
+  overflow: scroll;
 }
 
 .profile-card .profile-info {
@@ -59,25 +60,25 @@ body, html {
   }
 }
 
-@media all and (max-width: 420px) {
+@media all and (min-width: 360px) and (max-width: 420px) {
   .profile-card .profile-info {
     width: 90vw;
   }
 }
 
-@media all and (max-width: 768px) {
+@media all and (min-width: 421px) and (max-width: 768px) {
   .profile-card .profile-info {
     width: 90vw;
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 769px) and (max-width: 1024px) {
   .profile-card .profile-info {
     width: 90vw;
   }
 }
 
-@media all and (max-width: 1366px) {
+@media all and (min-width: 1025px) and (max-width: 1366px) {
   .profile-card .profile-info {
     width: 40vw;
   }
@@ -95,19 +96,19 @@ body, html {
   }
 }
 
-@media all and (max-width: 420px) {
+@media all and (min-width: 361px) and (max-width: 420px) {
   .profile-card .profile-info .profile-image {
     width: 60%;
   }
 }
 
-@media all and (max-width: 768px) {
+@media all and (min-width: 421px) and (max-width: 768px) {
   .profile-card .profile-info .profile-image {
     width: 50vw;
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 769px) and (max-width: 1024px) {
   .profile-card .profile-info .profile-image {
     width: 30vw;
   }
@@ -120,13 +121,25 @@ body, html {
   font-weight: 500;
 }
 
-@media all and (max-width: 420px) {
+@media all and (max-width: 360px) {
+  .profile-card .profile-info h3 {
+    font-size: 2rem;
+  }
+}
+
+@media all and (min-width: 361px) and (max-width: 420px) {
   .profile-card .profile-info h3 {
     font-size: 2.6rem;
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 421px) and (max-width: 600px) {
+  .profile-card .profile-info h3 {
+    font-size: 3rem;
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 1024px) {
   .profile-card .profile-info h3 {
     font-size: 4rem;
   }
@@ -137,13 +150,19 @@ body, html {
   letter-spacing: 3px;
 }
 
-@media all and (max-width: 420px) {
+@media all and (min-width: 361px) and (max-width: 420px) {
   .profile-card .profile-info h4 {
     font-size: 0.9rem;
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 421px) and (max-width: 600px) {
+  .profile-card .profile-info h4 {
+    font-size: 0.9rem;
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 1024px) {
   .profile-card .profile-info h4 {
     font-size: 1.5rem;
   }
@@ -189,7 +208,7 @@ body, html {
   }
 }
 
-@media all and (max-width: 1366px) {
+@media all and (min-width: 1025px) and (max-width: 1366px) {
   .profile-card .links {
     width: 40vw;
   }
@@ -197,23 +216,35 @@ body, html {
 
 .profile-card .links:last-of-type {
   margin-top: -1px;
-  margin-bottom: -50px;
+  margin-bottom: 0px;
   padding-top: 30px;
 }
 
 .profile-card .links a {
   color: #222;
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 2.6rem;
 }
 
-@media all and (max-width: 420px) {
+.profile-card .links a:hover {
+  color: #353b48;
+  -webkit-animation: bounce 200ms linear infinite;
+          animation: bounce 200ms linear infinite;
+}
+
+@media all and (min-width: 361px) and (max-width: 420px) {
   .profile-card .links a {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 421px) and (max-width: 600px) {
+  .profile-card .links a {
+    font-size: 2rem;
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 1024px) {
   .profile-card .links a {
     font-size: 2.5rem;
   }
@@ -239,7 +270,13 @@ body, html {
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 421px) and (max-width: 600px) {
+  .profile-card .links.contact a {
+    font-size: .8rem;
+  }
+}
+
+@media all and (min-width: 500) and (max-width: 1024px) {
   .profile-card .links.contact a {
     font-size: 1.4rem;
   }
@@ -284,6 +321,44 @@ body, html {
   }
   100% {
     background: #7f8fa6;
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  40% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  80% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  40% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  80% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
 }
 /*# sourceMappingURL=style.css.map */
